@@ -1,0 +1,152 @@
+	<!doctype html>
+	<html lang="en">
+	<head>
+		<title>Olivia</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<link rel="stylesheet" href="css/style.css">
+		<style>
+			#password-strength {
+			height: 10px;
+			width: 100px;
+			background-color: #ddd;
+			border-radius: 5px;
+			margin-top: 10px;
+			}
+
+			#password-strength.weak {
+			background-color: red;
+			}
+
+			#password-strength.medium {
+			background-color: yellow;
+			}
+
+			#password-strength.strong {
+			background-color: green;
+			}
+		</style>
+		</head>
+		<body>
+		<section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-12 col-lg-10">
+						<div class="wrap d-md-flex">
+							<div class="img" style="background-image: url(images/logo.png); "></div>
+							<div class="login-wrap p-4 p-md-5">
+						<div class="d-flex">
+							<div class="w-100">
+								<h3 class="mb-4">Sign Up</h3>
+							</div>
+									<!-- <div class="w-100">
+										<p class="social-media d-flex justify-content-end">
+											<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+											<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+										</p>
+									</div> -->
+						</div>
+						
+								<form action="#" class="signin-form">
+							<div class="form-group mb-3">
+								<label class="label" for="name">First Name</label>
+								<input type="text" class="form-control" placeholder="First Name" required>
+							</div>
+						<div class="form-group mb-3">
+							<label class="label" for="password">Last Name</label>
+						<input type="text" class="form-control" placeholder="Last Name" required>
+						</div>
+						<div class="form-group mb-3">
+							<label class="label" for="password">Business Name</label>
+						<input type="text" class="form-control" placeholder="Business Name" required>
+						</div>
+						<div class="form-group mb-3">
+							<label class="label" for="password">Business Address</label>
+						<input type="text" class="form-control" placeholder="Business Address" required>
+						</div>
+						<div class="form-group mb-3">
+							<label class="label" for="password">Email</label>
+						<input type="email" class="form-control" placeholder="Email" required>
+						</div>
+						<div class="form-group mb-3">
+							<label class="label" for="password">Password</label>
+						<input type="password" class="form-control" placeholder="Password" id="password" required>
+						</div>
+						<div class="form-group mb-3">
+							<label class="label" for="password"> Repeat Password</label>
+						<input type="password" class="form-control" placeholder="Repeat Password" required>
+						<div id="password-strength"></div>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
+						</div>
+					</form>
+					<p class="text-center">Already a member? <a data-toggle="tab" href="#signup">Sign In</a></p>
+					</div>
+				</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script>
+			// JavaScript
+const passwordInput = document.getElementById('password');
+const passwordStrengthDiv = document.getElementById('password-strength');
+
+passwordInput.addEventListener('keyup', () => {
+  const password = passwordInput.value;
+  let strength = 0;
+
+  // Check password length
+  if (password.length < 8) {
+    strength = 0;
+  } else if (password.length >= 8 && password.length < 12) {
+    strength = 1;
+  } else {
+    strength = 2;
+  }
+
+  // Check for numbers, uppercase letters, and symbols
+  if (/[0-9]/.test(password)) {
+    strength++;
+  }
+  if (/[A-Z]/.test(password)) {
+    strength++;
+  }
+  if (/[!@#$%^&*()_+=-{};:'<>,./?]/.test(password)) {
+    strength++;
+  }
+
+  // Update password strength div
+  switch (strength) {
+    case 0:
+      passwordStrengthDiv.className = 'weak';
+      break;
+    case 1:
+      passwordStrengthDiv.className = 'medium';
+      break;
+    case 2:
+      passwordStrengthDiv.className = 'strong';
+      break;
+    case 3:
+      passwordStrengthDiv.className = 'strong';
+      break;
+    default:
+      passwordStrengthDiv.className = 'weak';
+  }
+});
+		</script>
+		<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+
+		</body>
+	</html>
+
