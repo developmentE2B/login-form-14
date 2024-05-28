@@ -1,5 +1,5 @@
 function checkSession(){
-    if (sessionStorage.getItem("user") == null) {
+    if (localStorage.getItem("session") == null) {
         window.location.href = "../index.html";
     }
 }
