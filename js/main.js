@@ -7,7 +7,14 @@ button.addEventListener('click', function () {
 })
 
 function login( username, password) {
+    const button = document.getElementById('login')
+    button.disabled = true
 
+    const loader = document.getElementById('loader')
+    loader.style.display = 'block'
+
+    const txtUsername = document.getElementById('username').disabled = true
+    const txtPassword = document.getElementById('password').disabled = true
     var settings = {
         "url": "https://script.google.com/macros/s/AKfycbyLLQTRX1-3j1-2LCejIq1aXjnNBI5LgoOEVpnkzLWGeTpu1tCvMlcdIEttdy9ciwOkJA/exec",
         "type": "POST",
@@ -15,10 +22,8 @@ function login( username, password) {
             "username": username,
             "password": password
         }),
-        success: function(){
-            // alert( "Gracias" );
-        },
-        error: function() {Swal.fire('Error de conexión','','info')}
+        success: function(){},
+        error: function() {Swal.fire('Something went wrong','','error').then(()=>location.reload())}
     };
     $.ajax(settings).done(function (response) {
         console.log(response);
